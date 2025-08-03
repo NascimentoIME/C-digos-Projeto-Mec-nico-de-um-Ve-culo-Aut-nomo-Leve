@@ -45,3 +45,4 @@ V_Gx         = resultado(1);
 W_b          = resultado(2);
 W_s          = resultado(3);
 BETA_1_PONTO = resultado(4);
+
