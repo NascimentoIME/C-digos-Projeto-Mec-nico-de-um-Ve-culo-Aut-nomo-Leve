@@ -42,6 +42,7 @@ a_Lz = 0.005;   % Ponto L: 0,5 cm acima do CM
 comprimento_garfo_susp_traseira = 0.091782 %% comprimento da suspensão traseira
 
 
+
 M = [1 0  a_Lx;
      0 1  a_Lz;
      1 0  a_Ex;
@@ -70,6 +71,7 @@ inv_I_carroceria = 1 / I_carroceria;                % novo: ajuda na legibilidad
 
 %%% entrei eixos
 entre_eixos= 0.184356%m
+a2 = entre_eixos - a_Ax;
 
 %%%% velocidade do veículo
 Vv = 5 %m/s 
@@ -79,10 +81,12 @@ Vv = 5 %m/s
 %%%% obstáculos
 Hmax = 10/100 %%% altura do quebra molas 8 cm tipo I ou 10 cm tipo II, sgundo Res. CONTRAM 39/1998
 Lqm = 3,7 %%%% comprimento do quebra-molas 1,5 m tipo I ou 3,7 m tipo II, sgundo Res. CONTRAM 39/1998
-Xcg = 10
+Xobs = 10;
+n_obs_lombada = 2;
+n_obs = 10;
 %% fcn = Hmax * sin( (pi / Lqm) * (Vv * t - (Xcg - a_Ax)) ); ; %% quebra molas segundo norma
 %% dy_dt = Hmax * cos( (pi / Lqm) * (Vv * t - (Xcg - a_Ax)) ) * (pi * Vv / Lqm);
-t_reto_diant = (Xcg - a_Ax) / Vv;
+%t_reto_diant = (Xcg - a_Ax) / Vv;
 z0_roda = 0.04 %%% altura em relação ao solo das rodas no início
 z0_carroceria = 0.12 %%% altura em relação ao solo da carroceria no início
 
@@ -90,9 +94,10 @@ z0_carroceria = 0.12 %%% altura em relação ao solo da carroceria no início
 
 
 
+
 % Exibir resultados
-fprintf('Massa da carroceria: %.2f kg\n', m_carroceria);
-fprintf('Momento de inércia em pitch (Iy): %.5f kg·m^2\n', I_carroceria);
+%fprintf('Massa da carroceria: %.2f kg\n', m_carroceria);
+%fprintf('Momento de inércia em pitch (Iy): %.5f kg·m^2\n', I_carroceria);
 
 
 
